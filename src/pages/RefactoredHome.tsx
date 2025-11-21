@@ -265,7 +265,14 @@ export default function RefactoredHome() {
         }
 
         setAnalysisResult(result.analysis);
-        setDiagnosisState('results');
+
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+
+        setTimeout(() => {
+          setShowLoadingScene(false);
+          setDiagnosisState('results');
+        }, remainingTime + 300);
 
         const durationMs = Date.now() - diagnosisStartTime;
         await userTracking.trackDiagnosisClick({

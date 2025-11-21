@@ -130,7 +130,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-1 text-white drop-shadow-lg">
                   <Phone className="w-3 h-3" />
-                  <span>080-3824-1560</span>
+                  <span>011-596-0130</span>
                 </li>
                 <li className="text-white/80 drop-shadow-lg text-xs">
                   受付時間: 平日 9:00-18:00
@@ -142,7 +142,7 @@ export default function Footer() {
           {/* Copyright Section */}
           <div className="border-t border-white/30 pt-4 text-center">
             <p className="text-xs sm:text-sm text-white drop-shadow-lg mb-2 font-medium">
-              &copy; {currentYear} 合同会社リコッテ. All rights reserved.
+              &copy; {currentYear} 株式会社メディアエクシード (Media Exceed Inc.). All rights reserved.
             </p>
             <p className="text-[10px] sm:text-xs text-white/90 drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4">
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
@@ -152,7 +152,7 @@ export default function Footer() {
 
             {/* Service Information */}
             <div className="text-[10px] sm:text-xs text-white/80 drop-shadow-lg">
-              <p className="inline">合同会社リコッテ</p>
+              <p className="inline">株式会社メディアエクシード</p>
               <span className="mx-2">|</span>
               <p className="inline">AI株式診断サービス</p>
               <span className="mx-2">|</span>

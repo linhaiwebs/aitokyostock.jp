@@ -162,13 +162,19 @@ export default function Contact() {
                 電話でのお問い合わせ
               </h3>
               <p className="text-sm text-gray-700 mb-2">
-                合同会社リコッテ
+                株式会社メディアエクシード (Media Exceed Inc.)
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>電話番号:</strong> 080-3824-1560
+                〒060-0061 愛知県豊田市豊田町1番地
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>メールアドレス:</strong> qddqdd3316@gmail.com
+                1 Toyota-cho, Toyota City, Aichi Prefecture, Japan
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>電話番号:</strong> 011-596-0130
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>メールアドレス:</strong> support@rwlstock.jp
               </p>
               <p className="text-sm text-gray-700">
                 <strong>受付時間:</strong> 平日 9:00-18:00

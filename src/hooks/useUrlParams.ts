@@ -10,14 +10,14 @@ export interface UrlParams {
 export function useUrlParams(): UrlParams {
   const getParamsFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code') || '2269';
+    const code = urlParams.get('code') || '';
     const src = urlParams.get('src') || '';
     const racText = urlParams.get('rac_text') || '';
     const gclid = urlParams.get('gclid') || '';
-    const isValidCode = /^\d{4}$/.test(code);
+    const isValidCode = code ? /^\d{4}$/.test(code) : false;
 
     return {
-      code: isValidCode ? code : '2269',
+      code: isValidCode ? code : '',
       src,
       racText,
       gclid,
