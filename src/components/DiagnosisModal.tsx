@@ -115,13 +115,19 @@ export default function DiagnosisModal({
               onClick={onLineConversion}
               className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm mt-6"
             >
-              <ExternalLink className="w-5 h-5" />
-              無料AI診断結果をLINEで毎日受け取る
+              <ExternalLink className="w-6 h-6 flex-shrink-0" />
+              <span>無料AI診断結果をLINEで毎日受け取る</span>
             </button>
 
-            <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
-              <p className="text-xs text-green-700 leading-relaxed">
-                LINEで登録すると、毎日最新の株式分析レポートをお届けします
+            <div className="mt-3 p-4 bg-blue-50 rounded-lg border-2 border-blue-300">
+              <div className="flex items-start gap-2 mb-2">
+                <ExternalLink className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-blue-900 font-semibold">
+                  外部リンクへの移動について
+                </p>
+              </div>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                このボタンをクリックすると、LINEアプリまたはLINE公式サイトに移動します。LINEで登録すると、毎日最新の株式分析レポートをお届けします。
               </p>
             </div>
           </div>

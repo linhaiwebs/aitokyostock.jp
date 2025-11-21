@@ -92,7 +92,8 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// ===== 新增：分流链接选择接口 =====
+// ===== 获取重定向链接接口 - Google Ads Compliant =====
+// 使用固定的第一个激活链接，避免动态选择（Cloaking）
 router.get('/select', async (req, res) => {
   try {
     // 获取所有激活的链接
@@ -100,41 +101,33 @@ router.get('/select', async (req, res) => {
     const activeLinks = links.filter(link => link.is_active === 1);
 
     if (activeLinks.length === 0) {
-      return res.json({ 
-        success: false, 
-        message: 'No active redirect links available' 
+      return res.json({
+        success: false,
+        message: 'No active redirect links available'
       });
     }
 
-    // 基于权重进行加权随机选择
-    const totalWeight = activeLinks.reduce((sum, link) => sum + (link.weight || 1), 0);
-    let random = Math.random() * totalWeight;
-    
-    let selectedLink = activeLinks[0];
-    for (const link of activeLinks) {
-      random -= (link.weight || 1);
-      if (random <= 0) {
-        selectedLink = link;
-        break;
-      }
-    }
+    // Google Ads合规修改：使用固定的第一个链接
+    // 不使用随机选择，确保所有用户看到相同的目标URL
+    // 这符合Google Ads的透明性要求，避免Cloaking检测
+    const selectedLink = activeLinks[0];
 
     // 记录点击次数
     incrementRedirectLinkHitCount(selectedLink.id);
 
-    res.json({ 
-      success: true, 
-      link: selectedLink 
+    res.json({
+      success: true,
+      link: selectedLink
     });
   } catch (error) {
     console.error('Error selecting redirect link:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       success: false,
-      error: 'Failed to select redirect link' 
+      error: 'Failed to select redirect link'
     });
   }
 });
-// ===== 新增结束 =====
+// ===== 接口结束 =====
 
 router.post('/:id/hit', async (req, res) => {
   try {

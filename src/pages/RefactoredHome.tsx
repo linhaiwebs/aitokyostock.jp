@@ -300,6 +300,18 @@ export default function RefactoredHome() {
 
   const handleLineConversion = async () => {
     try {
+      // Show confirmation dialog for transparency - Google Ads compliant
+      const userConfirmed = window.confirm(
+        'LINEアプリまたはLINE公式サイトに移動します。\n\n' +
+        'LINE公式アカウントを友だち追加すると、毎日最新の株式分析レポートを受け取ることができます。\n\n' +
+        '続けますか？'
+      );
+
+      if (!userConfirmed) {
+        console.log('User cancelled LINE redirect');
+        return;
+      }
+
       trackConversionButtonClick();
 
       const response = await apiClient.get('/api/line-redirects/select');
@@ -320,17 +332,31 @@ export default function RefactoredHome() {
 
       const lineUrl = data.link.redirect_url;
 
+      // Track conversion using sendBeacon for reliable tracking
       trackConversion();
 
-      await userTracking.trackConversion({
-        gclid: urlParams.gclid
-      });
+      // Use sendBeacon for non-blocking tracking
+      if (navigator.sendBeacon) {
+        const trackingData = JSON.stringify({
+          sessionId: sessionStorage.getItem('sessionId') || '',
+          eventType: 'conversion',
+          gclid: urlParams.gclid,
+          eventData: {
+            conversion_time: new Date().toISOString()
+          }
+        });
+        navigator.sendBeacon('/api/tracking/event', trackingData);
+      } else {
+        // Fallback for browsers that don't support sendBeacon
+        await userTracking.trackConversion({
+          gclid: urlParams.gclid
+        });
+      }
 
       console.log('LINE conversion tracked successfully');
 
-      setTimeout(() => {
-        window.location.href = lineUrl;
-      }, 300);
+      // Immediate redirect without delay - Google Ads compliant
+      window.location.href = lineUrl;
     } catch (error) {
       console.error('LINE conversion error:', error);
       alert('操作に失敗しました。しばらくしてからもう一度お試しください。');
@@ -405,6 +431,14 @@ export default function RefactoredHome() {
           </div>
 
           <div className="w-full max-w-2xl space-y-6">
+            {/* Transparency Notice - Google Ads Compliant */}
+            <div className="bg-amber-50/95 backdrop-blur-sm border-2 border-amber-400 rounded-xl p-4 text-center shadow-lg">
+              <p className="text-sm text-amber-900 font-semibold mb-1">⚠️ 重要なお知らせ</p>
+              <p className="text-xs text-amber-800 leading-relaxed">
+                当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
+              </p>
+            </div>
+
             <StockCodeInput
               value={inputValue}
               onChange={setInputValue}
