@@ -17,6 +17,26 @@ export default {
         'card-dark': '#1c2242',
         'pale-yellow': '#fef9c3',
         'label-green': '#10b981',
+        'modern-purple': {
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          200: '#DDD6FE',
+          300: '#C4B5FD',
+          400: '#A78BFA',
+          500: '#8B83FF',
+          600: '#6B63FF',
+          700: '#5A52E8',
+          800: '#4A42C7',
+          900: '#3A32A6',
+        },
+        'bg-purple': {
+          light: '#4A4563',
+          dark: '#3A3452',
+          darker: '#2A2442',
+        },
+        'text-light': '#F9FAFB',
+        'text-muted': '#E5E7EB',
+        'border-subtle': '#6B7280',
       },
       backgroundImage: {
         'dark-gradient': 'linear-gradient(to bottom right, #0a0e1a, #111827, #0a0e1a)',
@@ -24,6 +44,9 @@ export default {
         'white-to-blue': 'linear-gradient(to bottom, #ffffff, #e0f2fe)',
         'blue-horizontal': 'linear-gradient(to right, #1e3a8a, #3b82f6)',
         'blue-radial': 'radial-gradient(circle, #3b82f6, transparent)',
+        'purple-main': 'linear-gradient(180deg, #4A4563 0%, #3A3452 100%)',
+        'purple-button': 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)',
+        'purple-hover': 'linear-gradient(135deg, #5A52E8 0%, #7A73EF 100%)',
       },
       boxShadow: {
         'red-glow': '0 0 20px rgba(220, 38, 38, 0.5)',
@@ -35,11 +58,21 @@ export default {
       },
       animation: {
         'pulse-red': 'pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float-rotate': 'float-rotate 4s ease-in-out infinite',
+        'fadeIn': 'fadeIn 0.3s ease-in',
       },
       keyframes: {
         'pulse-red': {
           '0%, 100%': { opacity: 1, boxShadow: '0 0 20px rgba(220, 38, 38, 0.5)' },
           '50%': { opacity: 0.8, boxShadow: '0 0 40px rgba(220, 38, 38, 0.8)' },
+        },
+        'float-rotate': {
+          '0%, 100%': { transform: 'rotate(0deg) translateY(0)' },
+          '50%': { transform: 'rotate(5deg) translateY(-10px)' },
+        },
+        'fadeIn': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
         },
       },
       fontFamily: {
@@ -48,6 +81,11 @@ export default {
       },
       spacing: {
         '7.5': '30px',
+      },
+      borderRadius: {
+        'modern-xl': '20px',
+        'modern-lg': '16px',
+        'modern-md': '12px',
       },
     },
   },

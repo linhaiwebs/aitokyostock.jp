@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import VideoBackground from '../components/VideoBackground';
-import AIStockLogo from '../components/AIStockLogo';
-import StockCodeInput from '../components/StockCodeInput';
-import DynamicAIPrompt from '../components/DynamicAIPrompt';
-import DiagnosisButton from '../components/DiagnosisButton';
+import ModernGradientBackground from '../components/ModernGradientBackground';
+import ModernHeader from '../components/ModernHeader';
+import ModernStockInput from '../components/ModernStockInput';
+import ModernPromptBox from '../components/ModernPromptBox';
+import ModernActionButton from '../components/ModernActionButton';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import DiagnosisModal from '../components/DiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
@@ -415,99 +415,87 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative">
-      <VideoBackground />
+    <div className="min-h-screen relative flex items-center justify-center">
+      <ModernGradientBackground />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8">
         <ApiStatsDisplay />
 
-        <div className="flex-grow flex flex-col items-center justify-center px-4 py-12 space-y-8 md:space-y-12">
-          <div className="flex flex-col items-center space-y-6">
-            <div className="relative inline-block">
-              <div className="relative">
-                <AIStockLogo />
-              </div>
-            </div>
+        <div className="space-y-6">
+          {/* Transparency Notice - Google Ads Compliant */}
+          <div className="bg-white/10 backdrop-blur-md border border-amber-400/50 rounded-xl p-4 text-center animate-fadeIn">
+            <p className="text-sm text-amber-300 font-semibold mb-1">⚠️ 重要なお知らせ</p>
+            <p className="text-xs text-gray-200 leading-relaxed">
+              当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
+            </p>
           </div>
 
-          <div className="w-full max-w-2xl space-y-6">
-            {/* Transparency Notice - Google Ads Compliant */}
-            <div className="bg-amber-50/95 backdrop-blur-sm border-2 border-amber-400 rounded-xl p-4 text-center shadow-lg">
-              <p className="text-sm text-amber-900 font-semibold mb-1">⚠️ 重要なお知らせ</p>
-              <p className="text-xs text-amber-800 leading-relaxed">
-                当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
-              </p>
+          <ModernHeader />
+
+          <ModernStockInput
+            value={inputValue}
+            onChange={setInputValue}
+            onStockSelect={handleStockSelect}
+          />
+
+          <ModernPromptBox
+            stockName={stockData?.info.name}
+            stockCode={stockCode}
+          />
+
+          {loading && (
+            <div className="text-center py-8 animate-fadeIn">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-modern-purple-500"></div>
+              <p className="mt-4 text-white font-semibold text-lg">株価データを読み込んでいます...</p>
             </div>
+          )}
 
-            <StockCodeInput
-              value={inputValue}
-              onChange={setInputValue}
-              onStockSelect={handleStockSelect}
-            />
+          {error && diagnosisState !== 'error' && (
+            <div className="bg-red-500/20 backdrop-blur-sm border border-red-300/50 rounded-xl p-4 text-center animate-fadeIn">
+              <p className="text-white font-semibold">{error}</p>
+            </div>
+          )}
 
-            <DynamicAIPrompt
-              stockName={stockData?.info.name}
-              stockCode={stockCode}
-              onStockNameClick={() => {
-                if (stockCode) {
-                  setInputValue(stockCode);
-                }
-              }}
-            />
+          {inputValue && !loading && diagnosisState === 'initial' && (
+            <ModernActionButton onClick={runDiagnosis} />
+          )}
 
-            {loading && (
-              <div className="text-center py-8">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white border-t-blue-500"></div>
-                <p className="mt-4 text-white font-semibold text-lg drop-shadow-lg">株価データを読み込んでいます...</p>
-              </div>
-            )}
-
-            {error && diagnosisState !== 'error' && (
-              <div className="bg-red-500/90 backdrop-blur-sm border-2 border-red-300 rounded-xl p-4 text-center">
-                <p className="text-white font-semibold">{error}</p>
-              </div>
-            )}
-
-            {inputValue && !loading && diagnosisState === 'initial' && (
-              <DiagnosisButton onClick={runDiagnosis} />
-            )}
-
-            {diagnosisState === 'error' && (
-              <div className="bg-red-900/80 backdrop-blur-sm border-2 border-red-500 rounded-xl p-6 text-center">
-                <h3 className="text-xl font-bold text-red-300 mb-3">診断エラー</h3>
-                <p className="text-red-200 font-semibold mb-4 whitespace-pre-line">{error}</p>
-                <button
-                  onClick={() => {
-                    setDiagnosisState('initial');
-                    setError(null);
-                  }}
-                  className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all shadow-lg"
-                >
-                  もう一度試す
-                </button>
-              </div>
-            )}
-          </div>
+          {diagnosisState === 'error' && (
+            <div className="bg-red-900/30 backdrop-blur-md border border-red-500/50 rounded-xl p-6 text-center animate-fadeIn">
+              <h3 className="text-xl font-bold text-red-300 mb-3">診断エラー</h3>
+              <p className="text-red-200 font-semibold mb-4 whitespace-pre-line">{error}</p>
+              <button
+                onClick={() => {
+                  setDiagnosisState('initial');
+                  setError(null);
+                }}
+                className="px-6 py-3 bg-purple-button hover:bg-purple-hover text-white font-bold rounded-lg transition-all shadow-lg"
+              >
+                もう一度試す
+              </button>
+            </div>
+          )}
         </div>
 
-        <DiagnosisLoadingOverlay
-          isVisible={showLoadingOverlay}
-          progress={loadingProgress}
-          onComplete={() => setShowLoadingOverlay(false)}
-        />
-
-        <DiagnosisModal
-          isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
-          onClose={closeModal}
-          analysis={analysisResult}
-          stockCode={inputValue}
-          stockName={stockData?.info.name || inputValue}
-          onLineConversion={handleLineConversion}
-          onReportDownload={handleReportDownload}
-          isStreaming={diagnosisState === 'streaming'}
-          isConnecting={diagnosisState === 'connecting'}
-        />
       </div>
+
+      <DiagnosisLoadingOverlay
+        isVisible={showLoadingOverlay}
+        progress={loadingProgress}
+        onComplete={() => setShowLoadingOverlay(false)}
+      />
+
+      <DiagnosisModal
+        isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
+        onClose={closeModal}
+        analysis={analysisResult}
+        stockCode={inputValue}
+        stockName={stockData?.info.name || inputValue}
+        onLineConversion={handleLineConversion}
+        onReportDownload={handleReportDownload}
+        isStreaming={diagnosisState === 'streaming'}
+        isConnecting={diagnosisState === 'connecting'}
+      />
     </div>
   );
 }

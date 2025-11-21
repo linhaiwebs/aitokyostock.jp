@@ -59,43 +59,43 @@ export default function DiagnosisLoadingOverlay({
       <div className={`w-full max-w-2xl transition-transform duration-500 ${
         isExiting ? 'scale-95' : 'scale-100'
       }`}>
-        <div className="bg-gradient-to-br from-[#1a0f3e] via-[#2d1b5e] to-[#1a0f3e] border-2 border-orange-500/50 rounded-2xl shadow-2xl p-8">
+        <div className="bg-gradient-to-br from-bg-purple-dark via-bg-purple-light to-bg-purple-dark border-2 border-modern-purple-500/50 rounded-2xl shadow-2xl p-8">
           <div className="flex justify-center mb-6">
             <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full animate-pulse opacity-50"></div>
-              <div className="absolute inset-2 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-modern-purple-500 to-modern-purple-600 rounded-full animate-pulse opacity-50"></div>
+              <div className="absolute inset-2 bg-gradient-to-br from-modern-purple-400 to-modern-purple-500 rounded-full flex items-center justify-center">
                 <span className="text-4xl">🤖</span>
               </div>
             </div>
           </div>
 
           <div className="mb-6">
-            <h3 className="text-xl font-bold text-white mb-2 text-center">AI診断を実行中</h3>
-            <p className="text-sm text-orange-300 text-center">市場データを分析しています...</p>
+            <h3 className="text-xl font-bold text-white mb-2 text-center">AI分析を実行中</h3>
+            <p className="text-sm text-modern-purple-300 text-center">市場データを深度分析しています...</p>
           </div>
 
-          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border border-orange-500/30">
+          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border border-modern-purple-500/30">
             <div
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-300 ease-out shadow-lg shadow-orange-500/50"
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-modern-purple-500 to-modern-purple-600 transition-all duration-300 ease-out shadow-lg shadow-modern-purple-500/50"
               style={{ width: `${Math.min(progress, 100)}%` }}
             />
           </div>
 
           <div className="mb-6 text-center">
-            <span className="text-sm font-semibold text-orange-400">
+            <span className="text-sm font-semibold text-modern-purple-400">
               {Math.floor(Math.min(progress, 100))}%
             </span>
           </div>
 
-          <div className="bg-gray-900/40 border-2 border-orange-500/30 rounded-lg p-6 backdrop-blur-sm">
+          <div className="bg-gray-900/40 border-2 border-modern-purple-500/30 rounded-lg p-6 backdrop-blur-sm">
             <div className="space-y-3 text-sm">
               <p className="text-white font-semibold text-center text-base">
-                📊 データはAIによって深度分析中です
+                📊 AIが複数の指標を総合的に評価中
               </p>
-              <p className="text-orange-200 text-center">
+              <p className="text-modern-purple-300 text-center">
                 しばらくお待ちください
               </p>
-              <div className="pt-3 border-t border-orange-500/30">
+              <div className="pt-3 border-t border-modern-purple-500/30">
                 <p className="text-xs text-gray-300 text-center leading-relaxed">
                   すべてのデータは公開されている市場情報を使用しており、データの真実性と有効性を保証します。本分析は最新のAI技術により、財務指標、業界動向、市場トレンドを総合的に評価しています。
                 </p>
