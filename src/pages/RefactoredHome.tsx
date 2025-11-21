@@ -422,14 +422,6 @@ export default function RefactoredHome() {
         <ApiStatsDisplay />
 
         <div className="space-y-6">
-          {/* Transparency Notice - Google Ads Compliant */}
-          <div className="bg-white/10 backdrop-blur-md border border-amber-400/50 rounded-xl p-4 text-center animate-fadeIn">
-            <p className="text-sm text-amber-300 font-semibold mb-1">⚠️ 重要なお知らせ</p>
-            <p className="text-xs text-gray-200 leading-relaxed">
-              当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
-            </p>
-          </div>
-
           <ModernHeader />
 
           <ModernStockInput
