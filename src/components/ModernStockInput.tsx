@@ -87,8 +87,8 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
-          placeholder="株式コードを入力"
-          className="w-full px-5 py-4 text-base text-gray-800 bg-white rounded-modern-xl border-0 focus:ring-2 focus:ring-modern-purple-500 focus:outline-none shadow-lg placeholder-gray-400 transition-all duration-200 focus:scale-[1.01]"
+          placeholder="株式コードを入力 ✨"
+          className="w-full px-6 py-4 text-lg text-gray-800 bg-white rounded-3xl border-2 border-purple-200 focus:ring-4 focus:ring-purple-300 focus:border-purple-400 focus:outline-none shadow-xl placeholder-gray-400 transition-all duration-200 focus:scale-[1.02] hover:shadow-2xl"
           disabled={isLoading}
         />
       </div>
@@ -96,21 +96,21 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
       {showDropdown && currentResults.length > 0 && (
         <div
           ref={dropdownRef}
-          className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-xl overflow-hidden animate-fadeIn"
+          className="absolute z-50 w-full mt-3 bg-white rounded-2xl shadow-2xl overflow-hidden animate-fadeIn border-2 border-purple-100"
         >
           <div className="max-h-80 overflow-y-auto">
             {currentResults.map((stock, index) => (
               <button
                 key={`${stock.code}-${index}`}
                 onClick={() => handleStockClick(stock)}
-                className="w-full px-4 py-3 text-left hover:bg-modern-purple-50 transition-colors border-b border-gray-100 last:border-b-0"
+                className="w-full px-5 py-3.5 text-left hover:bg-purple-50 transition-all duration-150 border-b border-purple-50 last:border-b-0 hover:scale-[1.01]"
               >
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="font-semibold text-gray-900">{stock.code}</div>
                     <div className="text-sm text-gray-600">{stock.name}</div>
                   </div>
-                  <div className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">
+                  <div className="text-xs text-purple-600 bg-purple-100 px-3 py-1 rounded-full font-medium">
                     {stock.market}
                   </div>
                 </div>
@@ -119,24 +119,24 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
           </div>
 
           {totalPages > 1 && (
-            <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-t border-gray-200">
+            <div className="flex items-center justify-between px-5 py-3 bg-purple-50 border-t border-purple-100">
               <button
                 onClick={handlePrevPage}
                 disabled={currentPage === 0}
-                className="flex items-center gap-1 px-3 py-1 text-sm text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-purple-700 bg-white border-2 border-purple-200 rounded-full hover:bg-purple-50 hover:border-purple-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft className="w-4 h-4" />
                 前へ
               </button>
 
-              <div className="text-sm text-gray-600">
+              <div className="text-sm font-semibold text-purple-700">
                 {currentPage + 1} / {totalPages}
               </div>
 
               <button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages - 1}
-                className="flex items-center gap-1 px-3 py-1 text-sm text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-purple-700 bg-white border-2 border-purple-200 rounded-full hover:bg-purple-50 hover:border-purple-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 次へ
                 <ChevronRight className="w-4 h-4" />
