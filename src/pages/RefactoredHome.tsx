@@ -5,7 +5,7 @@ import ModernHeader from '../components/ModernHeader';
 import ModernStockInput from '../components/ModernStockInput';
 import ModernPromptBox from '../components/ModernPromptBox';
 import ModernActionButton from '../components/ModernActionButton';
-import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
+import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
 import { StockData } from '../types/stock';
@@ -28,7 +28,7 @@ export default function RefactoredHome() {
   const [analysisResult, setAnalysisResult] = useState<string>('');
   const [diagnosisStartTime, setDiagnosisStartTime] = useState<number>(0);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
-  const [showLoadingOverlay, setShowLoadingOverlay] = useState<boolean>(false);
+  const [showLoadingScene, setShowLoadingScene] = useState<boolean>(false);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -36,6 +36,9 @@ export default function RefactoredHome() {
       setStockCode(urlParams.code);
       setInputValue(urlParams.code);
       fetchStockData(urlParams.code);
+    } else {
+      setStockCode('');
+      setInputValue('');
     }
   }, [urlParams.code]);
 
@@ -127,7 +130,10 @@ export default function RefactoredHome() {
     setDiagnosisStartTime(Date.now());
     setAnalysisResult('');
     setLoadingProgress(0);
-    setShowLoadingOverlay(true);
+    setShowLoadingScene(true);
+
+    const minimumLoadingTime = 2000;
+    const startTime = Date.now();
 
     if (progressIntervalRef.current) {
       clearInterval(progressIntervalRef.current);
@@ -222,10 +228,13 @@ export default function RefactoredHome() {
 
                   if (firstChunk && fullAnalysis.trim().length > 0) {
                     setLoadingProgress(100);
+                    const elapsedTime = Date.now() - startTime;
+                    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+
                     setTimeout(() => {
-                      setShowLoadingOverlay(false);
+                      setShowLoadingScene(false);
                       setDiagnosisState('streaming');
-                    }, 600);
+                    }, remainingTime + 300);
                     firstChunk = false;
                   }
 
@@ -289,13 +298,19 @@ export default function RefactoredHome() {
       }
 
       setError(`${errorMessage}${errorDetails ? `\n詳細: ${errorDetails}` : ''}`);
-      setDiagnosisState('error');
-      setShowLoadingOverlay(false);
-      setLoadingProgress(0);
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
-      }
+
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 2000 - elapsedTime);
+
+      setTimeout(() => {
+        setDiagnosisState('error');
+        setShowLoadingScene(false);
+        setLoadingProgress(0);
+        if (progressIntervalRef.current) {
+          clearInterval(progressIntervalRef.current);
+          progressIntervalRef.current = null;
+        }
+      }, remainingTime);
     }
   };
 
@@ -405,9 +420,12 @@ export default function RefactoredHome() {
     setDiagnosisState('initial');
     setAnalysisResult('');
     setLoadingProgress(0);
-    setShowLoadingOverlay(false);
+    setShowLoadingScene(false);
     setDiagnosisStartTime(0);
     setError(null);
+    setStockCode('');
+    setInputValue('');
+    setStockData(null);
 
     if (progressIntervalRef.current) {
       clearInterval(progressIntervalRef.current);
@@ -423,64 +441,62 @@ export default function RefactoredHome() {
       <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8 pt-16 flex flex-col items-center justify-center min-h-screen">
         <ApiStatsDisplay />
 
-        <div className="space-y-6">
-          <ModernHeader />
+        {!showLoadingScene ? (
+          <div className="space-y-6">
+            <ModernHeader />
 
-          <ModernStockInput
-            value={inputValue}
-            onChange={setInputValue}
-            onStockSelect={handleStockSelect}
-          />
+            <ModernStockInput
+              value={inputValue}
+              onChange={setInputValue}
+              onStockSelect={handleStockSelect}
+            />
 
-          <ModernPromptBox
-            stockName={stockData?.info.name}
-            stockCode={stockCode}
-          />
+            <ModernPromptBox
+              stockName={stockData?.info.name}
+              stockCode={stockCode}
+            />
 
-          {loading && (
-            <div className="text-center py-8 animate-fadeIn">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-modern-purple-500"></div>
-              <p className="mt-4 text-white font-semibold text-lg">株価データを読み込んでいます...</p>
-            </div>
-          )}
+            {loading && (
+              <div className="text-center py-8 animate-fadeIn">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-modern-purple-500"></div>
+                <p className="mt-4 text-white font-semibold text-lg">株価データを読み込んでいます...</p>
+              </div>
+            )}
 
-          {error && diagnosisState !== 'error' && (
-            <div className="bg-red-500/20 backdrop-blur-sm border border-red-300/50 rounded-xl p-4 text-center animate-fadeIn">
-              <p className="text-white font-semibold">{error}</p>
-            </div>
-          )}
+            {error && diagnosisState !== 'error' && (
+              <div className="bg-red-500/20 backdrop-blur-sm border border-red-300/50 rounded-xl p-4 text-center animate-fadeIn">
+                <p className="text-white font-semibold">{error}</p>
+              </div>
+            )}
 
-          {inputValue && !loading && diagnosisState === 'initial' && (
-            <ModernActionButton onClick={runDiagnosis} />
-          )}
+            {!loading && diagnosisState === 'initial' && (
+              <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+            )}
 
-          {diagnosisState === 'error' && (
-            <div className="bg-red-900/30 backdrop-blur-md border border-red-500/50 rounded-xl p-6 text-center animate-fadeIn">
-              <h3 className="text-xl font-bold text-red-300 mb-3">診断エラー</h3>
-              <p className="text-red-200 font-semibold mb-4 whitespace-pre-line">{error}</p>
-              <button
-                onClick={() => {
-                  setDiagnosisState('initial');
-                  setError(null);
-                }}
-                style={{
-                  background: 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)'
-                }}
-                className="px-6 py-3 text-white font-bold rounded-lg transition-all shadow-lg hover:opacity-90"
-              >
-                もう一度試す
-              </button>
-            </div>
-          )}
-        </div>
+            {diagnosisState === 'error' && (
+              <div className="bg-red-900/30 backdrop-blur-md border border-red-500/50 rounded-xl p-6 text-center animate-fadeIn">
+                <h3 className="text-xl font-bold text-red-300 mb-3">診断エラー</h3>
+                <p className="text-red-200 font-semibold mb-4 whitespace-pre-line">{error}</p>
+                <button
+                  onClick={() => {
+                    setDiagnosisState('initial');
+                    setError(null);
+                  }}
+                  style={{
+                    background: 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)'
+                  }}
+                  className="px-6 py-3 text-white font-bold rounded-lg transition-all shadow-lg hover:opacity-90"
+                >
+                  もう一度試す
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <InlineLoadingScene isVisible={showLoadingScene} />
+        )}
 
       </div>
-
-      <DiagnosisLoadingOverlay
-        isVisible={showLoadingOverlay}
-        progress={loadingProgress}
-        onComplete={() => setShowLoadingOverlay(false)}
-      />
 
       <DiagnosisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
