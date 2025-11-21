@@ -1,7 +1,12 @@
 export default function ModernGradientBackground() {
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
-      <div className="absolute inset-0 bg-purple-main">
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(180deg, #4A4563 0%, #3A3452 100%)'
+        }}
+      >
         <div className="absolute top-[8%] right-[12%] text-white/20 text-5xl animate-pulse" style={{ animationDuration: '3s' }}>
           +
         </div>
@@ -34,8 +39,6 @@ export default function ModernGradientBackground() {
           +
         </div>
       </div>
-
-      <div className="absolute inset-0 bg-gradient-to-br from-bg-purple-light/30 via-transparent to-bg-purple-dark/40"></div>
     </div>
   );
 }

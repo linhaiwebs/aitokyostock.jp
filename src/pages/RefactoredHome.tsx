@@ -469,7 +469,10 @@ export default function RefactoredHome() {
                   setDiagnosisState('initial');
                   setError(null);
                 }}
-                className="px-6 py-3 bg-purple-button hover:bg-purple-hover text-white font-bold rounded-lg transition-all shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)'
+                }}
+                className="px-6 py-3 text-white font-bold rounded-lg transition-all shadow-lg hover:opacity-90"
               >
                 もう一度試す
               </button>

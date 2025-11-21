@@ -59,11 +59,23 @@ export default function DiagnosisLoadingOverlay({
       <div className={`w-full max-w-2xl transition-transform duration-500 ${
         isExiting ? 'scale-95' : 'scale-100'
       }`}>
-        <div className="bg-gradient-to-br from-bg-purple-dark via-bg-purple-light to-bg-purple-dark border-2 border-modern-purple-500/50 rounded-2xl shadow-2xl p-8">
+        <div
+          className="border-2 rounded-2xl shadow-2xl p-8"
+          style={{
+            background: 'linear-gradient(to bottom right, #3A3452, #4A4563, #3A3452)',
+            borderColor: 'rgba(139, 131, 255, 0.5)'
+          }}
+        >
           <div className="flex justify-center mb-6">
             <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-modern-purple-500 to-modern-purple-600 rounded-full animate-pulse opacity-50"></div>
-              <div className="absolute inset-2 bg-gradient-to-br from-modern-purple-400 to-modern-purple-500 rounded-full flex items-center justify-center">
+              <div
+                className="absolute inset-0 rounded-full animate-pulse opacity-50"
+                style={{ background: 'linear-gradient(to bottom right, #8B83FF, #6B63FF)' }}
+              ></div>
+              <div
+                className="absolute inset-2 rounded-full flex items-center justify-center"
+                style={{ background: 'linear-gradient(to bottom right, #A78BFA, #8B83FF)' }}
+              >
                 <span className="text-4xl">🤖</span>
               </div>
             </div>
@@ -71,28 +83,32 @@ export default function DiagnosisLoadingOverlay({
 
           <div className="mb-6">
             <h3 className="text-xl font-bold text-white mb-2 text-center">AI分析を実行中</h3>
-            <p className="text-sm text-modern-purple-300 text-center">市場データを深度分析しています...</p>
+            <p className="text-sm text-center" style={{ color: '#C4B5FD' }}>市場データを深度分析しています...</p>
           </div>
 
-          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border border-modern-purple-500/30">
+          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border" style={{ borderColor: 'rgba(139, 131, 255, 0.3)' }}>
             <div
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-modern-purple-500 to-modern-purple-600 transition-all duration-300 ease-out shadow-lg shadow-modern-purple-500/50"
-              style={{ width: `${Math.min(progress, 100)}%` }}
+              className="absolute top-0 left-0 h-full transition-all duration-300 ease-out shadow-lg"
+              style={{
+                width: `${Math.min(progress, 100)}%`,
+                background: 'linear-gradient(to right, #8B83FF, #6B63FF)',
+                boxShadow: '0 0 20px rgba(139, 131, 255, 0.5)'
+              }}
             />
           </div>
 
           <div className="mb-6 text-center">
-            <span className="text-sm font-semibold text-modern-purple-400">
+            <span className="text-sm font-semibold" style={{ color: '#A78BFA' }}>
               {Math.floor(Math.min(progress, 100))}%
             </span>
           </div>
 
-          <div className="bg-gray-900/40 border-2 border-modern-purple-500/30 rounded-lg p-6 backdrop-blur-sm">
+          <div className="bg-gray-900/40 border-2 rounded-lg p-6 backdrop-blur-sm" style={{ borderColor: 'rgba(139, 131, 255, 0.3)' }}>
             <div className="space-y-3 text-sm">
               <p className="text-white font-semibold text-center text-base">
                 📊 AIが複数の指標を総合的に評価中
               </p>
-              <p className="text-modern-purple-300 text-center">
+              <p className="text-center" style={{ color: '#C4B5FD' }}>
                 しばらくお待ちください
               </p>
               <div className="pt-3 border-t border-modern-purple-500/30">

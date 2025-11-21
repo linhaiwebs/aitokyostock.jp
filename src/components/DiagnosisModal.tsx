@@ -61,8 +61,11 @@ export default function DiagnosisModal({
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-75" style={{ touchAction: 'none' }}>
       <div className="relative w-full max-w-3xl max-h-[90vh]">
-        <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden border-2 border-modern-purple-300" style={{ touchAction: 'auto' }}>
-          <div className="sticky top-0 bg-purple-button px-6 py-4 flex items-center justify-between">
+        <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden border-2" style={{ touchAction: 'auto', borderColor: '#C4B5FD' }}>
+          <div
+            className="sticky top-0 px-6 py-4 flex items-center justify-between"
+            style={{ background: 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)' }}
+          >
           <div className="flex-1 text-center">
             <h2 className="text-sm font-bold text-white">
               {stockName}（{stockCode}）AI分析レポート
@@ -82,7 +85,7 @@ export default function DiagnosisModal({
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-modern-purple-700 rounded-full transition-colors ml-4"
+            className="p-2 rounded-full transition-colors ml-4 hover:bg-white/20"
             aria-label="閉じる"
           >
             <X className="w-6 h-6 text-white" />
@@ -92,19 +95,19 @@ export default function DiagnosisModal({
         <div ref={contentRef} className="overflow-y-auto max-h-[calc(90vh-180px)] px-6 py-6">
           <div className="mb-6">
 
-            <div className="bg-modern-purple-50 rounded-xl p-6 shadow-inner relative border border-modern-purple-200">
+            <div className="rounded-xl p-6 shadow-inner relative border" style={{ backgroundColor: '#F5F3FF', borderColor: '#DDD6FE' }}>
               <div className="prose prose-sm max-w-none">
                 {isConnecting ? (
                   <div className="text-center py-8">
-                    <Loader2 className="w-12 h-12 text-modern-purple-500 animate-spin mx-auto mb-4" />
-                    <p className="text-modern-purple-900 font-semibold">AIサーバーに接続中...</p>
-                    <p className="text-modern-purple-600 text-sm mt-2">数秒お待ちください</p>
+                    <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4" style={{ color: '#8B83FF' }} />
+                    <p className="font-semibold" style={{ color: '#3A32A6' }}>AIサーバーに接続中...</p>
+                    <p className="text-sm mt-2" style={{ color: '#6B63FF' }}>数秒お待ちください</p>
                   </div>
                 ) : (
                   <div>
                     <AnalysisRenderer text={analysis} />
                     {isStreaming && (
-                      <span className="inline-block w-2 h-5 bg-modern-purple-500 animate-pulse ml-1"></span>
+                      <span className="inline-block w-2 h-5 animate-pulse ml-1" style={{ backgroundColor: '#8B83FF' }}></span>
                     )}
                   </div>
                 )}
@@ -119,10 +122,10 @@ export default function DiagnosisModal({
               <span>LINEで毎日AIレポートを受け取る</span>
             </button>
 
-            <div className="mt-3 p-4 bg-modern-purple-50 rounded-lg border border-modern-purple-300">
+            <div className="mt-3 p-4 rounded-lg border" style={{ backgroundColor: '#F5F3FF', borderColor: '#C4B5FD' }}>
               <div className="flex items-start gap-2 mb-2">
-                <ExternalLink className="w-4 h-4 text-modern-purple-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-modern-purple-900 font-semibold">
+                <ExternalLink className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#6B63FF' }} />
+                <p className="text-xs font-semibold" style={{ color: '#3A32A6' }}>
                   外部リンクへの移動について
                 </p>
               </div>
