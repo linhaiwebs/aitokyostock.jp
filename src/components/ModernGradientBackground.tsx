@@ -1,8 +1,8 @@
 export default function ModernGradientBackground() {
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
+    <div className="absolute inset-0 w-full h-full z-0">
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 min-h-full overflow-visible"
         style={{
           background: 'linear-gradient(180deg, #4A4563 0%, #3A3452 100%)'
         }}
@@ -11,11 +11,23 @@ export default function ModernGradientBackground() {
         <div
           className="absolute"
           style={{
+            top: '-400px',
+            left: '-400px',
+            width: '1200px',
+            height: '1200px',
+            border: '3px solid rgba(255, 255, 255, 0.15)',
+            borderRadius: '50%',
+            pointerEvents: 'none'
+          }}
+        />
+        <div
+          className="absolute"
+          style={{
             top: '-300px',
             left: '-300px',
-            width: '1000px',
-            height: '1000px',
-            border: '2px solid rgba(255, 255, 255, 0.06)',
+            width: '900px',
+            height: '900px',
+            border: '3px solid rgba(255, 255, 255, 0.20)',
             borderRadius: '50%',
             pointerEvents: 'none'
           }}
@@ -25,21 +37,9 @@ export default function ModernGradientBackground() {
           style={{
             top: '-200px',
             left: '-200px',
-            width: '800px',
-            height: '800px',
-            border: '2px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '50%',
-            pointerEvents: 'none'
-          }}
-        />
-        <div
-          className="absolute"
-          style={{
-            top: '-100px',
-            left: '-100px',
             width: '600px',
             height: '600px',
-            border: '2px solid rgba(255, 255, 255, 0.10)',
+            border: '3px solid rgba(255, 255, 255, 0.25)',
             borderRadius: '50%',
             pointerEvents: 'none'
           }}

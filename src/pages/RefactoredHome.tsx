@@ -415,10 +415,10 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center">
+    <div className="min-h-screen relative">
       <ModernGradientBackground />
 
-      <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8">
+      <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
         <ApiStatsDisplay />
 
         <div className="space-y-6">
