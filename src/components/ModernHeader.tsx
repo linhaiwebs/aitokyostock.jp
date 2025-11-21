@@ -2,7 +2,7 @@ import AIRobotLogo from './AIRobotLogo';
 
 export default function ModernHeader() {
   return (
-    <div className="text-center animate-fadeIn relative">
+    <div className="text-center animate-fadeIn relative -mt-12 md:-mt-16">
       <div className="relative z-20">
         <AIRobotLogo />
       </div>
