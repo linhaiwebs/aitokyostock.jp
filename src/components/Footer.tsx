@@ -104,22 +104,6 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/disclaimer"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    免責事項 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/risk-disclosure"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    リスク開示書面 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/specified-commercial-transaction-act"
                     className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
                   >
@@ -142,22 +126,6 @@ export default function Footer() {
                     className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
                   >
                     お問い合わせフォーム <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/faq"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    よくある質問 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/support"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    サポート <ExternalLink className="w-3 h-3" />
                   </Link>
                 </li>
                 <li className="flex items-center gap-1 text-white drop-shadow-lg">
@@ -192,39 +160,10 @@ export default function Footer() {
                 <Building className="w-4 h-4" />
                 運営会社
               </h4>
-              <ul className="space-y-2 text-xs sm:text-sm">
-                <li>
-                  <Link
-                    to="/about"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    会社概要 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/team"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    チーム紹介 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/careers"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    採用情報 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/press"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    プレスリリース <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
+              <ul className="space-y-2 text-xs sm:text-sm text-white drop-shadow-lg">
+                <li>合同会社リコッテ</li>
+                <li>AI株式診断サービス提供</li>
+                <li>東京都渋谷区</li>
               </ul>
             </div>
           </div>
