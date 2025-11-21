@@ -1,6 +1,6 @@
 export default function AIRobotLogo() {
   return (
-    <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto animate-robot-float transition-transform hover:scale-110 duration-300">
+    <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 mx-auto animate-robot-float transition-transform hover:scale-110 duration-300">
       <svg
         viewBox="0 0 200 200"
         fill="none"
