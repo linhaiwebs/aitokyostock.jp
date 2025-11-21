@@ -1,8 +1,8 @@
 export default function ModernGradientBackground() {
   return (
-    <div className="absolute inset-0 w-full h-full z-0">
+    <div className="fixed inset-0 w-full h-full z-0">
       <div
-        className="absolute inset-0 min-h-full overflow-visible"
+        className="absolute inset-0 w-full h-full"
         style={{
           background: 'linear-gradient(180deg, #4A4563 0%, #3A3452 100%)'
         }}
