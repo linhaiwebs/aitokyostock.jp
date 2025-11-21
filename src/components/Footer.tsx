@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Scale, FileText, Mail, ExternalLink, Info, Phone, Building } from 'lucide-react';
+import { Shield, Scale, FileText, Mail, ExternalLink, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -78,7 +78,7 @@ export default function Footer() {
 
         {/* Footer Links Section */}
         <div className="border-t-2 border-white/30 pt-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             {/* Legal Documents */}
             <div>
               <h4 className="font-bold text-white drop-shadow-lg mb-3 flex items-center gap-2 text-sm">
@@ -137,35 +137,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-
-            {/* Service Information */}
-            <div>
-              <h4 className="font-bold text-white drop-shadow-lg mb-3 flex items-center gap-2 text-sm">
-                <Info className="w-4 h-4" />
-                サービス情報
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-white drop-shadow-lg">
-                <li>合同会社リコッテ</li>
-                <li>AI株式診断サービス</li>
-                <li>リアルタイム株価情報</li>
-                <li>テクニカル分析</li>
-                <li>銘柄スクリーニング</li>
-                <li>データ提供: 公開市場情報</li>
-              </ul>
-            </div>
-
-            {/* Company Information */}
-            <div>
-              <h4 className="font-bold text-white drop-shadow-lg mb-3 flex items-center gap-2 text-sm">
-                <Building className="w-4 h-4" />
-                運営会社
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-white drop-shadow-lg">
-                <li>合同会社リコッテ</li>
-                <li>AI株式診断サービス提供</li>
-                <li>東京都渋谷区</li>
-              </ul>
-            </div>
           </div>
 
           {/* Copyright Section */}
@@ -173,11 +144,26 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-white drop-shadow-lg mb-2 font-medium">
               &copy; {currentYear} 合同会社リコッテ. All rights reserved.
             </p>
-            <p className="text-[10px] sm:text-xs text-white/90 drop-shadow-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[10px] sm:text-xs text-white/90 drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4">
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
               投資に関する最終決定は、利用者ご自身の判断でなさるようお願いいたします。
               掲載されている情報の正確性については万全を期しておりますが、その内容の正確性、安全性、有用性を保証するものではありません。
             </p>
+
+            {/* Service Information */}
+            <div className="text-[10px] sm:text-xs text-white/80 drop-shadow-lg">
+              <p className="inline">合同会社リコッテ</p>
+              <span className="mx-2">|</span>
+              <p className="inline">AI株式診断サービス</p>
+              <span className="mx-2">|</span>
+              <p className="inline">リアルタイム株価情報</p>
+              <span className="mx-2">|</span>
+              <p className="inline">テクニカル分析</p>
+              <span className="mx-2">|</span>
+              <p className="inline">銘柄スクリーニング</p>
+              <span className="mx-2">|</span>
+              <p className="inline">データ提供: 公開市場情報</p>
+            </div>
           </div>
         </div>
       </div>
