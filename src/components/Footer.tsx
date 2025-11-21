@@ -78,7 +78,7 @@ export default function Footer() {
 
         {/* Footer Links Section */}
         <div className="border-t-2 border-white/30 pt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-2 gap-6 mb-6">
             {/* Legal Documents */}
             <div>
               <h4 className="font-bold text-white drop-shadow-lg mb-3 flex items-center gap-2 text-sm">
