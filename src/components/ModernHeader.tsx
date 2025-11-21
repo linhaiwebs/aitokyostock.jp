@@ -1,6 +1,10 @@
+import AIRobotLogo from './AIRobotLogo';
+
 export default function ModernHeader() {
   return (
-    <div className="text-center space-y-4 animate-fadeIn">
+    <div className="text-center space-y-6 animate-fadeIn">
+      <AIRobotLogo />
+
       <h1 className="text-4xl md:text-5xl font-bold text-white">
         ようこそ
       </h1>
