@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ModernGradientBackground from '../components/ModernGradientBackground';
+import DiagnosisTicker from '../components/DiagnosisTicker';
 import ModernHeader from '../components/ModernHeader';
 import ModernStockInput from '../components/ModernStockInput';
 import ModernPromptBox from '../components/ModernPromptBox';
@@ -416,9 +417,10 @@ export default function RefactoredHome() {
 
   return (
     <div className="min-h-screen relative">
+      <DiagnosisTicker />
       <ModernGradientBackground />
 
-      <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
+      <div className="relative z-10 w-full max-w-md mx-auto px-4 py-8 pt-16 flex flex-col items-center justify-center min-h-screen">
         <ApiStatsDisplay />
 
         <div className="space-y-6">
