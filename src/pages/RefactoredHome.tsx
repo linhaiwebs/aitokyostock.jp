@@ -8,7 +8,6 @@ import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
-import DisclaimerBanner from '../components/DisclaimerBanner';
 import TrustBadges from '../components/TrustBadges';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
@@ -455,7 +454,6 @@ export default function RefactoredHome() {
 
         {!showLoadingScene ? (
           <div className="space-y-6">
-            <DisclaimerBanner />
             <ModernHeader />
             <TrustBadges />
 
