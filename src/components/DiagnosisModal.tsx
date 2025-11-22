@@ -61,10 +61,10 @@ export default function DiagnosisModal({
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-75" style={{ touchAction: 'none' }}>
       <div className="relative w-full max-w-3xl max-h-[90vh]">
-        <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden border-2" style={{ touchAction: 'auto', borderColor: '#C4B5FD' }}>
+        <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden border-2" style={{ touchAction: 'auto', borderColor: '#06B6D4' }}>
           <div
             className="sticky top-0 px-6 py-4 flex items-center justify-between"
-            style={{ background: 'linear-gradient(135deg, #6B63FF 0%, #8B83FF 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #06B6D4 0%, #0284C7 100%)' }}
           >
           <div className="flex-1 text-center">
             <h2 className="text-sm font-bold text-white">
@@ -95,19 +95,19 @@ export default function DiagnosisModal({
         <div ref={contentRef} className="overflow-y-auto max-h-[calc(90vh-180px)] px-6 py-6">
           <div className="mb-6">
 
-            <div className="rounded-xl p-6 shadow-inner relative border" style={{ backgroundColor: '#F5F3FF', borderColor: '#DDD6FE' }}>
+            <div className="rounded-xl p-6 shadow-inner relative border" style={{ backgroundColor: '#ECFEFF', borderColor: '#67E8F9' }}>
               <div className="prose prose-sm max-w-none">
                 {isConnecting ? (
                   <div className="text-center py-8">
-                    <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4" style={{ color: '#8B83FF' }} />
-                    <p className="font-semibold" style={{ color: '#3A32A6' }}>AIサーバーに接続中...</p>
-                    <p className="text-sm mt-2" style={{ color: '#6B63FF' }}>数秒お待ちください</p>
+                    <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4" style={{ color: '#06B6D4' }} />
+                    <p className="font-semibold" style={{ color: '#0C4A6E' }}>AI分析中...</p>
+                    <p className="text-sm mt-2" style={{ color: '#0284C7' }}>処理中...</p>
                   </div>
                 ) : (
                   <div>
                     <AnalysisRenderer text={analysis} />
                     {isStreaming && (
-                      <span className="inline-block w-2 h-5 animate-pulse ml-1" style={{ backgroundColor: '#8B83FF' }}></span>
+                      <span className="inline-block w-2 h-5 animate-pulse ml-1" style={{ backgroundColor: '#06B6D4' }}></span>
                     )}
                   </div>
                 )}

@@ -4,7 +4,7 @@ export default function ModernGradientBackground() {
       <div
         className="absolute inset-0 w-full h-full"
         style={{
-          background: 'linear-gradient(180deg, #4A4563 0%, #3A3452 100%)'
+          background: 'linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%)'
         }}
       >
         {/* Decorative curved arcs in top-left corner */}
