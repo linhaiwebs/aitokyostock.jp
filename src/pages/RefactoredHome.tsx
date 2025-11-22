@@ -8,6 +8,8 @@ import ModernActionButton from '../components/ModernActionButton';
 import InlineLoadingScene from '../components/InlineLoadingScene';
 import DiagnosisModal from '../components/DiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
+import DisclaimerBanner from '../components/DisclaimerBanner';
+import TrustBadges from '../components/TrustBadges';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -325,9 +327,12 @@ export default function RefactoredHome() {
     try {
       // Show confirmation dialog for transparency - Google Ads compliant
       const userConfirmed = window.confirm(
-        'LINEアプリまたはLINE公式サイトに移動します。\n\n' +
+        '【外部サイトへの移動】\n\n' +
+        'これからLINE公式アプリまたはLINE公式サイト(第三者サービス)に移動します。\n\n' +
+        'LINEは当サービスとは独立した別のサービスです。\n\n' +
         'LINE公式アカウントを友だち追加すると、毎日最新の株式分析レポートを受け取ることができます。\n\n' +
-        '続けますか？'
+        '※ 当サービスは完全無料です。LINEへの移動後も追加料金は一切かかりません。\n\n' +
+        'LINEアプリに移動しますか？'
       );
 
       if (!userConfirmed) {
@@ -450,7 +455,9 @@ export default function RefactoredHome() {
 
         {!showLoadingScene ? (
           <div className="space-y-6">
+            <DisclaimerBanner />
             <ModernHeader />
+            <TrustBadges />
 
             <ModernStockInput
               value={inputValue}

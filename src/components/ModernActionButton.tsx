@@ -32,6 +32,12 @@ export default function ModernActionButton({ onClick, disabled = false }: Modern
           無料
         </span>
       </button>
+
+      <div className="mt-3 text-center">
+        <p className="text-xs text-white/90 drop-shadow-lg">
+          ✓ 登録不要 ✓ クレジットカード不要 ✓ 完全無料
+        </p>
+      </div>
     </div>
   );
 }
