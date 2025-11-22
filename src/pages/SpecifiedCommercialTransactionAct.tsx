@@ -35,20 +35,27 @@ export default function SpecifiedCommercialTransactionAct() {
                   <h2 className="text-xl font-bold text-gray-900 mb-4">販売業者情報</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">組織名</dt>
-                      <dd className="sm:col-span-2 text-gray-700">株式会社メディアエクシード</dd>
+                      <dt className="font-semibold text-gray-900">会社名</dt>
+                      <dd className="sm:col-span-2 text-gray-700">株式会社ブレインパッド</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">組織名（英語）</dt>
-                      <dd className="sm:col-span-2 text-gray-700">Media Exceed Inc.</dd>
+                      <dt className="font-semibold text-gray-900">会社名（英語）</dt>
+                      <dd className="sm:col-span-2 text-gray-700">BrainPad Inc.</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">所在地</dt>
                       <dd className="sm:col-span-2 text-gray-700">
-                        〒060-0061<br />
-                        愛知県豊田市豊田町1番地<br />
-                        1 Toyota-cho, Toyota City, Aichi Prefecture, Japan
+                        〒106-0032<br />
+                        東京都港区六本木三丁目1番1号 六本木ティーキューブ
                       </dd>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-2">
+                      <dt className="font-semibold text-gray-900">設立</dt>
+                      <dd className="sm:col-span-2 text-gray-700">2004年3月18日</dd>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-2">
+                      <dt className="font-semibold text-gray-900">業種</dt>
+                      <dd className="sm:col-span-2 text-gray-700">データ分析・デジタルマーケティング・コンサルティング</dd>
                     </div>
                   </dl>
                 </div>
@@ -64,16 +71,12 @@ export default function SpecifiedCommercialTransactionAct() {
                   <h2 className="text-xl font-bold text-gray-900 mb-4">連絡先</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">電話番号</dt>
-                      <dd className="sm:col-span-2 text-gray-700">011-596-0130</dd>
-                    </div>
-                    <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">support@rwlstock.jp</dd>
+                      <dd className="sm:col-span-2 text-blue-600">support@stock-tokyo.jp</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
-                      <dd className="sm:col-span-2 text-gray-700">平日 9:00 - 18:00（土日祝日、年末年始を除く）</dd>
+                      <dd className="sm:col-span-2 text-gray-700">24時間受付（返信は営業日内）</dd>
                     </div>
                   </dl>
                 </div>
@@ -234,18 +237,12 @@ export default function SpecifiedCommercialTransactionAct() {
                   特定商取引法に関するご質問、その他お問い合わせは、
                   以下の方法でご連絡ください。
                 </p>
-                <div className="flex items-start gap-3 mb-3">
+                <div className="flex items-start gap-3 mb-4">
                   <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">support@rwlstock.jp</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 mb-4">
-                  <Phone className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">電話</p>
-                    <p className="text-gray-700">011-596-0130（平日 9:00 - 18:00）</p>
+                    <p className="text-blue-600">support@stock-tokyo.jp</p>
+                    <p className="text-sm text-gray-600 mt-1">24時間受付（返信は営業日内）</p>
                   </div>
                 </div>
                 <Link

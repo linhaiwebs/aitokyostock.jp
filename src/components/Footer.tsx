@@ -129,11 +129,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li className="flex items-center gap-1 text-white drop-shadow-lg">
-                  <Phone className="w-3 h-3" />
-                  <span>011-596-0130</span>
+                  <Mail className="w-3 h-3" />
+                  <span>support@stock-tokyo.jp</span>
                 </li>
                 <li className="text-white/80 drop-shadow-lg text-xs">
-                  受付時間: 平日 9:00-18:00
+                  受付時間: 24時間受付（返信は営業日内）
                 </li>
               </ul>
             </div>
@@ -142,7 +142,7 @@ export default function Footer() {
           {/* Copyright Section */}
           <div className="border-t border-white/30 pt-4 text-center">
             <p className="text-xs sm:text-sm text-white drop-shadow-lg mb-2 font-medium">
-              &copy; {currentYear} 株式会社メディアエクシード (Media Exceed Inc.). All rights reserved.
+              &copy; {currentYear} 株式会社ブレインパッド (BrainPad Inc.). All rights reserved.
             </p>
             <p className="text-[10px] sm:text-xs text-white/90 drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4">
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
@@ -151,18 +151,18 @@ export default function Footer() {
             </p>
 
             {/* Service Information */}
-            <div className="text-[10px] sm:text-xs text-white/80 drop-shadow-lg">
-              <p className="inline">株式会社メディアエクシード</p>
-              <span className="mx-2">|</span>
-              <p className="inline">AI株式診断サービス</p>
-              <span className="mx-2">|</span>
-              <p className="inline">リアルタイム株価情報</p>
-              <span className="mx-2">|</span>
-              <p className="inline">テクニカル分析</p>
-              <span className="mx-2">|</span>
-              <p className="inline">銘柄スクリーニング</p>
-              <span className="mx-2">|</span>
-              <p className="inline">データ提供: 公開市場情報</p>
+            <div className="text-[10px] sm:text-xs text-white/80 drop-shadow-lg space-y-1">
+              <p>株式会社ブレインパッド（BrainPad Inc.）</p>
+              <p>〒106-0032 東京都港区六本木三丁目1番1号 六本木ティーキューブ</p>
+              <p className="mt-2">
+                <span className="inline">AI株式診断サービス</span>
+                <span className="mx-2">|</span>
+                <span className="inline">データ分析</span>
+                <span className="mx-2">|</span>
+                <span className="inline">デジタルマーケティング</span>
+                <span className="mx-2">|</span>
+                <span className="inline">DXコンサルティング</span>
+              </p>
             </div>
           </div>
         </div>

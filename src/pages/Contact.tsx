@@ -32,10 +32,11 @@ export default function Contact() {
               <div className="bg-blue-50 rounded-lg p-4 flex items-start gap-3">
                 <Clock className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-gray-900 mb-1">平日 9:00 - 18:00</p>
+                  <p className="font-semibold text-gray-900 mb-1">24時間受付</p>
                   <p className="text-sm text-gray-600">
-                    ※土日祝日、年末年始は休業とさせていただきます<br />
-                    ※お問い合わせ内容により、回答までに数日かかる場合がございます
+                    ※メールでのお問い合わせは24時間受け付けております<br />
+                    ※ご返信は営業日（平日 9:00-18:00）内に順次対応いたします<br />
+                    ※土日祝日、年末年始の返信は翌営業日となります
                   </p>
                 </div>
               </div>
@@ -158,26 +159,26 @@ export default function Contact() {
 
             <div className="bg-slate-100 rounded-lg p-6">
               <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                電話でのお問い合わせ
+                <Mail className="w-5 h-5" />
+                運営会社情報
               </h3>
               <p className="text-sm text-gray-700 mb-2">
-                株式会社メディアエクシード (Media Exceed Inc.)
+                <strong>会社名:</strong> 株式会社ブレインパッド（BrainPad Inc.）
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                〒060-0061 愛知県豊田市豊田町1番地
+                <strong>所在地:</strong> 〒106-0032 東京都港区六本木三丁目1番1号 六本木ティーキューブ
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                1 Toyota-cho, Toyota City, Aichi Prefecture, Japan
+                <strong>設立:</strong> 2004年3月18日
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>電話番号:</strong> 011-596-0130
+                <strong>業種:</strong> データ分析・デジタルマーケティング・コンサルティング
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>メールアドレス:</strong> support@rwlstock.jp
+                <strong>メールアドレス:</strong> support@stock-tokyo.jp
               </p>
               <p className="text-sm text-gray-700">
-                <strong>受付時間:</strong> 平日 9:00-18:00
+                <strong>受付時間:</strong> 24時間受付（返信は営業日内）
               </p>
             </div>
           </div>
